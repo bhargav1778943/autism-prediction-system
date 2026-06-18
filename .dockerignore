@@ -1,0 +1,39 @@
+# Python Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebooks & Checkpoints
+.ipynb_checkpoints/
+*.ipynb
+
+# Local IDE Configurations
+.vscode/
+.idea/
+
+# Version Control
+.git/
+.gitignore
+
+# Datasets and Test suites
+autism_data.csv
+tests/
+pytest.ini
+
+# Docker config files themselves
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Reports and Scratch files
+*.md
+scratch/
+evaluate.py

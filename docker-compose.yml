@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------------
+  # Flask REST API Service (Port 5000)
+  # -------------------------------------------------------------------
+  flask-api:
+    container_name: autism-api
+    build:
+      context: .
+      target: api
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+    # For local development: uncomment the volume mount below
+    # volumes:
+    #   - .:/app
+    restart: unless-stopped
+
+  # -------------------------------------------------------------------
+  # Streamlit Web UI Service (Port 8501)
+  # -------------------------------------------------------------------
+  streamlit-ui:
+    container_name: autism-ui
+    build:
+      context: .
+      target: ui
+    ports:
+      - "8501:8501"
+    # For local development: uncomment the volume mount below
+    # volumes:
+    #   - .:/app
+    depends_on:
+      - flask-api
+    restart: unless-stopped
